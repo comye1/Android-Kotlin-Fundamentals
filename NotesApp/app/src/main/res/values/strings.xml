@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NotesApp</string>
+    <string name="notes">나의 노트</string>
+    <string name="search">노트 검색하기</string>
 </resources>
