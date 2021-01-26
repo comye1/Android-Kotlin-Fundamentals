@@ -49,13 +49,35 @@
         android:textColorHint="@color/gray"
         android:background="@drawable/background"
         />
+ㅊ
+    <TextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5ssp"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:layout_marginStart="@dimen/_10ssp"
+        android:layout_marginEnd="@dimen/_10ssp"
+        android:background="@drawable/background"
+        android:ellipsize="end"
+        android:fontFamily="@font/bold"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10ssp"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/_8ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNoteTitle" />
+
     <LinearLayout
         android:id="@+id/li"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="@dimen/_10ssp"
-        app:layout_constraintTop_toBottomOf="@id/etNoteTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvDateTime"
         app:layout_constraintEnd_toEndOf="parent">
         <View
             android:layout_width="@dimen/_5ssp"
