@@ -2,6 +2,9 @@
     <string name="app_name">NotesApp</string>
     <string name="notes">나의 노트</string>
     <string name="search">노트 검색하기</string>
+    <string name="note_title">노트 제목</string>
+    <string name="note_sub_title">소제목</string>
+    <string name="note_desc">노트 설명</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
