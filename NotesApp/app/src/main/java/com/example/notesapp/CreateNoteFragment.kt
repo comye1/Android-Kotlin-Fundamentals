@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.notesapp.database.NotesDatabase
 import com.example.notesapp.databinding.FragmentCreateNoteBinding
 import com.example.notesapp.databinding.FragmentHomeBinding
+import com.example.notesapp.entities.Notes
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,7 +24,8 @@ private const val ARG_PARAM2 = "param2"
  * Use the [CreateNoteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CreateNoteFragment : Fragment() {
+class CreateNoteFragment : BaseFragment() {
+    var currentDate:String? = null
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -51,7 +55,7 @@ class CreateNoteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
+        currentDate = sdf.format(Date())
 
         binding.tvDateTime.text = currentDate
         binding.imgDone.setOnClickListener {
@@ -75,6 +79,21 @@ class CreateNoteFragment : Fragment() {
         if(binding.etNoteDesc.text.isNullOrEmpty()) {
             Toast.makeText(context, "내용을 입력해주세요.", Toast.LENGTH_SHORT).show()
         }
+
+        launch {
+            val notes = Notes()
+            notes.title = binding.etNoteTitle.text.toString()
+            notes.subTitle = binding.etNoteSubTitle.text.toString()
+            notes.noteText = binding.etNoteDesc.text.toString()
+            notes.dateTime = currentDate
+
+            context?.let{
+                NotesDatabase.getDatabase(it).noteDao().insertNotes(notes)
+                binding.etNoteDesc.setText("")
+                binding.etNoteTitle.setText("")
+                binding.etNoteSubTitle.setText("")
+            }
+        }
     }
 
     private fun replaceFragment(fragment:Fragment, isTransition:Boolean){
@@ -83,7 +102,7 @@ class CreateNoteFragment : Fragment() {
         if (isTransition){
             fragmentTransition.setCustomAnimations(android.R.anim.slide_out_right,android.R.anim.slide_in_left)
         }
-        fragmentTransition.replace(R.id.frameLayout,fragment).addToBackStack(fragment.javaClass.simpleName).commit()
+        fragmentTransition.replace(R.id.frame_layout,fragment).addToBackStack(fragment.javaClass.simpleName).commit()
     }
 
     override fun onDestroyView() {
