@@ -17,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/ic_back"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        android:background="@null"/>
 
     <ImageView
         android:id="@+id/imgDone"
@@ -29,7 +30,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_tick"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        android:background="@null"/>
 
     <EditText
         android:id="@+id/etNoteTitle"
@@ -44,10 +46,11 @@
         android:textSize="@dimen/_14ssp"
         android:fontFamily="@font/bold"
         android:maxLines="1"
+        android:inputType="text"
         android:ellipsize="end"
         android:textColor="@color/gray"
         android:textColorHint="@color/gray"
-        android:background="@drawable/background"
+        android:background="@null"
         />
 ㅊ
     <TextView
@@ -58,7 +61,7 @@
         android:layout_marginTop="@dimen/_5ssp"
         android:layout_marginStart="@dimen/_10ssp"
         android:layout_marginEnd="@dimen/_10ssp"
-        android:background="@drawable/background"
+        android:background="@null"
         android:ellipsize="end"
         android:fontFamily="@font/bold"
         android:maxLines="1"
@@ -93,13 +96,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:hint="@string/note_sub_title"
+            android:inputType="text"
             android:textSize="@dimen/_12ssp"
             android:fontFamily="@font/normal"
             android:maxLines="1"
             android:ellipsize="end"
             android:textColor="@color/gray"
             android:textColorHint="@color/gray"
-            android:background="@drawable/background"
+            android:background="@null"
             />
 
     </LinearLayout>
@@ -113,11 +117,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="@string/note_desc"
-            android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_12ssp"
         android:fontFamily="@font/normal"
         android:inputType="textMultiLine"
         android:textColor="@color/gray"
         android:textColorHint="@color/gray"
-        android:background="@drawable/background"
+        android:background="@null"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
