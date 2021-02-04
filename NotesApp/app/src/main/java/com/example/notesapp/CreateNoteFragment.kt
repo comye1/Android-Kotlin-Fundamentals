@@ -25,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CreateNoteFragment : BaseFragment() {
+    var selectedColor = "#222222" //기본 색 : lightBlack
     var currentDate:String? = null
     // TODO: Rename and change types of parameters
     private var param1: String? = null
