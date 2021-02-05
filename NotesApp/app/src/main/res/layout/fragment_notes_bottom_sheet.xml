@@ -97,22 +97,22 @@
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/_5ssp"
-            android:id="@+id/fNote3">
-            <View android:layout_width="@dimen/_24ssp"
-                android:layout_height="@dimen/_24ssp"
-                android:background="@drawable/note_color_3"/>
-            <ImageView
-                android:id="@+id/imgNote3"
-                android:layout_width="@dimen/_16ssp"
-                android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
-                android:layout_gravity="center"
-                app:tint="@color/black"/>
-        </FrameLayout>
+<!--        <FrameLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:paddingStart="@dimen/_5ssp"-->
+<!--            android:id="@+id/fNote3">-->
+<!--            <View android:layout_width="@dimen/_24ssp"-->
+<!--                android:layout_height="@dimen/_24ssp"-->
+<!--                android:background="@drawable/note_color_3"/>-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imgNote3"-->
+<!--                android:layout_width="@dimen/_16ssp"-->
+<!--                android:layout_height="@dimen/_16ssp"-->
+<!--                android:src="@drawable/ic_check"-->
+<!--                android:layout_gravity="center"-->
+<!--                app:tint="@color/black"/>-->
+<!--        </FrameLayout>-->
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
