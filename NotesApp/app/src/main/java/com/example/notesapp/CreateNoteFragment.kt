@@ -80,7 +80,8 @@ class CreateNoteFragment : BaseFragment() {
         }
 
         binding.imgBack.setOnClickListener {
-            replaceFragment(HomeFragment.newInstance(), false)
+//            replaceFragment(HomeFragment.newInstance(), false)
+            requireActivity().supportFragmentManager.popBackStack()
         }
 
         binding.imgMore.setOnClickListener {
