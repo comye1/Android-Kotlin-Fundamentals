@@ -29,7 +29,7 @@
         android:layout_marginBottom="@dimen/_10ssp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_tick"
+        android:src="@drawable/ic_check"
         app:tint="@color/white"
         android:background="@null"/>
 
@@ -86,7 +86,7 @@
             android:layout_width="@dimen/_5ssp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_5ssp"
-            android:background="@color/white"/>
+            android:background="@color/ColorBlueNote"/>
         <EditText
             android:id="@+id/etNoteSubTitle"
             android:layout_width="match_parent"
