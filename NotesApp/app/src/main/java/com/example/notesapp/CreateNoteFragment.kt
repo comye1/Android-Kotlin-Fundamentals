@@ -47,9 +47,10 @@ class CreateNoteFragment : BaseFragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         _binding = FragmentCreateNoteBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+//        val view = binding.root
+//        return view
 
+        return binding.root
 //        return inflater.inflate(R.layout.fragment_create_note, container, false)
     }
 
