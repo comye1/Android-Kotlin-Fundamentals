@@ -124,4 +124,20 @@
         android:textColorHint="@color/gray"
         android:background="@null"
         />
+
+    <FrameLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40ssp">
+
+        <ImageView
+            android:id="@+id/imgMore"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_24ssp"
+            android:layout_height="@dimen/_24ssp"
+            android:src="@drawable/ic_more"
+            app:tint="@color/white"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
