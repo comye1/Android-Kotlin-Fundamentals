@@ -78,7 +78,6 @@
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_check"
                 app:tint="@color/white"/>
         </FrameLayout>
         <FrameLayout
@@ -93,7 +92,6 @@
                 android:id="@+id/imgNote2"
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>
@@ -109,7 +107,6 @@
 <!--                android:id="@+id/imgNote3"-->
 <!--                android:layout_width="@dimen/_16ssp"-->
 <!--                android:layout_height="@dimen/_16ssp"-->
-<!--                android:src="@drawable/ic_check"-->
 <!--                android:layout_gravity="center"-->
 <!--                app:tint="@color/black"/>-->
 <!--        </FrameLayout>-->
@@ -125,7 +122,6 @@
                 android:id="@+id/imgNote4"
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>
@@ -141,7 +137,6 @@
                 android:id="@+id/imgNote5"
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>
@@ -157,7 +152,6 @@
                 android:id="@+id/imgNote6"
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>
@@ -173,7 +167,6 @@
                 android:id="@+id/imgNote7"
                 android:layout_width="@dimen/_16ssp"
                 android:layout_height="@dimen/_16ssp"
-                android:src="@drawable/ic_check"
                 android:layout_gravity="center"
                 app:tint="@color/white"/>
         </FrameLayout>

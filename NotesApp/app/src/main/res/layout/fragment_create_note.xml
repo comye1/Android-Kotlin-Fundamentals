@@ -52,7 +52,7 @@
         android:textColorHint="@color/gray"
         android:background="@null"
         />
-ㅊ
+
     <TextView
         android:id="@+id/tvDateTime"
         android:layout_width="match_parent"
