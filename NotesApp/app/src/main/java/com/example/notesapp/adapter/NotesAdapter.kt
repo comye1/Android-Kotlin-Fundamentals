@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
+import com.example.notesapp.databinding.ItemRvNotesBinding
 import com.example.notesapp.entities.Notes
-import kotlinx.android.synthetic.main.item_rv_notes.view.*
 
 class NotesAdapter() : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     var listener:OnItemClickListener?=null
     var arrList = ArrayList<Notes>()
 
-    class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class NotesViewHolder(val binding:ItemRvNotesBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
@@ -27,22 +27,25 @@ class NotesAdapter() : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
         listener = listener1
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
-        return NotesViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_rv_notes, parent, false)
-        )
+//        return NotesViewHolder(
+//                LayoutInflater.from(parent.context).inflate(R.layout.item_rv_notes, parent, false)
+//        )
+        val binding = ItemRvNotesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return NotesViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        holder.itemView.tvTitle.text = arrList[position].title
-        holder.itemView.tvDesc.text = arrList[position].noteText
-        holder.itemView.tvDateTime.text = arrList[position].dateTime
+
+        holder.binding.tvTitle.text = arrList[position].title
+        holder.binding.tvDesc.text = arrList[position].noteText
+        holder.binding.tvDateTime.text = arrList[position].dateTime
 
         if(arrList[position].color != null){
-            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(arrList[position].color))
+            holder.binding.cardView.setCardBackgroundColor(Color.parseColor(arrList[position].color))
         }else{
-            holder.itemView.cardView.setCardBackgroundColor(Color.parseColor(R.color.lightBlack.toString()))
+            holder.binding.cardView.setCardBackgroundColor(Color.parseColor(R.color.lightBlack.toString()))
         }
-        holder.itemView.cardView.setOnClickListener {
+        holder.binding.cardView.setOnClickListener {
             listener!!.onClicked(arrList[position].id!!)
         }
     }
