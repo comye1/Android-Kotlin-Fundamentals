@@ -12,7 +12,6 @@ import com.example.notesapp.R
 import com.example.notesapp.databinding.FragmentNotesBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_notes_bottom_sheet.*
 
 class NoteBottomSheetFragment : BottomSheetDialogFragment() {
     var selectedColor = "#121212"
