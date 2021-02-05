@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_notes_bottom_sheet.*
 
 class NoteBottomSheetFragment : BottomSheetDialogFragment() {
-
+    var selectedColor = "#121212"
     override fun setupDialog(dialog: Dialog, style: Int) {
         super.setupDialog(dialog, style)
 
@@ -67,51 +67,89 @@ class NoteBottomSheetFragment : BottomSheetDialogFragment() {
     }
     private fun setListener(){
         fNote1.setOnClickListener {
+
+            imgNote1.setImageResource(R.drawable.ic_tick)
+            imgNote2.setImageResource(0)
+            imgNote4.setImageResource(0)
+            imgNote5.setImageResource(0)
+            imgNote6.setImageResource(0)
+            imgNote7.setImageResource(0)
+            selectedColor = "#4e33ff"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionBlue", "blue")
+            intent.putExtra("actionBlue", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
         fNote2.setOnClickListener {
+
+            imgNote2.setImageResource(R.drawable.ic_tick)
+            imgNote1.setImageResource(0)
+            imgNote4.setImageResource(0)
+            imgNote5.setImageResource(0)
+            imgNote6.setImageResource(0)
+            imgNote7.setImageResource(0)
+
+            selectedColor = "#ffd633"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionYellow", "yellow")
+            intent.putExtra("actionYellow", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
         fNote4.setOnClickListener {
+            imgNote4.setImageResource(R.drawable.ic_tick)
+            imgNote2.setImageResource(0)
+            imgNote1.setImageResource(0)
+            imgNote5.setImageResource(0)
+            imgNote6.setImageResource(0)
+            imgNote7.setImageResource(0)
+            selectedColor = "#ae3b76"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionPurple", "purple")
+            intent.putExtra("actionPurple", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
         fNote5.setOnClickListener {
+            imgNote5.setImageResource(R.drawable.ic_tick)
+            imgNote2.setImageResource(0)
+            imgNote1.setImageResource(0)
+            imgNote4.setImageResource(0)
+            imgNote6.setImageResource(0)
+            imgNote7.setImageResource(0)
+            selectedColor = "#0aebaf"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionGreen", "green")
+            intent.putExtra("actionGreen", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
         fNote6.setOnClickListener {
+            imgNote6.setImageResource(R.drawable.ic_tick)
+            imgNote2.setImageResource(0)
+            imgNote1.setImageResource(0)
+            imgNote5.setImageResource(0)
+            imgNote4.setImageResource(0)
+            imgNote7.setImageResource(0)
+            selectedColor = "#ff7746"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionOrange", "orange")
+            intent.putExtra("actionOrange", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
         fNote7.setOnClickListener {
+            imgNote7.setImageResource(R.drawable.ic_tick)
+            imgNote2.setImageResource(0)
+            imgNote1.setImageResource(0)
+            imgNote5.setImageResource(0)
+            imgNote6.setImageResource(0)
+            imgNote4.setImageResource(0)
+            selectedColor = "#202734"
             // bottom sheet -> fragment 로 broadcast 보내기
             val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionBlue", "blue")
-            LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
-            dismiss()
-        }
-        fNote1.setOnClickListener {
-            // bottom sheet -> fragment 로 broadcast 보내기
-            val intent = Intent("bottom_sheet_action")
-            intent.putExtra("actionBlack", "black")
+            intent.putExtra("actionBlack", selectedColor)
             LocalBroadcastManager.getInstance(requireContext()).sendBroadcast(intent)
             dismiss()
         }
