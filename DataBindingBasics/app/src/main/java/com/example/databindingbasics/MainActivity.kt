@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
 //        binding.text.visibility = View.VISIBLE
 
         binding.apply {
-            text.text = edit.text
+            textID.text = edit.text
             edit.visibility = View.GONE
             button.visibility = View.GONE
-            text.visibility = View.VISIBLE
+            textID.visibility = View.VISIBLE
         }
 
 
