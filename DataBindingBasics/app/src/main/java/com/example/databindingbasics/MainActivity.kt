@@ -32,24 +32,24 @@ class MainActivity : AppCompatActivity() {
 //        }
         // (2)
         binding.button.setOnClickListener {
-            setID(it)
+            setCast(it)
         }
     }
 
-    private fun setID(view: View){
+    private fun setCast(view: View){
 //        val editText = findViewById<EditText>(R.id.edit)
 //        val textView = findViewById<TextView>(R.id.text)
-
+//
 //        textView.text = editText.text
 //        editText.visibility = View.GONE
 //        view.visibility = View.GONE
 //        textView.visibility = View.VISIBLE
 
         //(3)
-//        binding.text.text = binding.edit.text
+//        binding.textCast.text = binding.edit.text
 //        binding.edit.visibility = View.GONE
 //        binding.button.visibility = View.GONE
-//        binding.text.visibility = View.VISIBLE
+//        binding.textCast.visibility = View.VISIBLE
 
         binding.apply {
 //            textCast.text = edit.text ==>
