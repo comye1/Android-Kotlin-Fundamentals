@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="role"
+            type="com.example.databindingbasics.Role" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -10,8 +15,8 @@
         tools:context=".MainActivity">
 
         <TextView
-            android:id="@+id/textName"
-            android:text="Name"
+            android:id="@+id/textRole"
+            android:text="@={role.character}"
             android:textSize="20dp"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
@@ -21,29 +26,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"/>
         <TextView
-            android:id="@+id/textID"
+            android:id="@+id/textCast"
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Hello World!"
+            android:text="@={role.cast}"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textName" />
+            app:layout_constraintStart_toStartOf="@id/textRole"
+            app:layout_constraintTop_toTopOf="@+id/textRole" />
 
         <EditText
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="ID 입력"
+            android:hint="Who's gonna act?"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textName" />
+            app:layout_constraintTop_toTopOf="@+id/textCast" />
 
         <Button
             android:id="@+id/button"

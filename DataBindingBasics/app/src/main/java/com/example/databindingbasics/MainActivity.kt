@@ -1,6 +1,7 @@
 package com.example.databindingbasics
 
 import android.content.Context
+import android.icu.text.IDNA
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,11 +17,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
 
+    private val role: Role = Role("Rachel Green")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.role = role
 
 //        findViewById<Button>(R.id.button).setOnClickListener {
 //            setID(it)
@@ -47,10 +52,13 @@ class MainActivity : AppCompatActivity() {
 //        binding.text.visibility = View.VISIBLE
 
         binding.apply {
-            textID.text = edit.text
+//            textCast.text = edit.text ==>
+            role?.cast = edit.text.toString()
+            invalidateAll() //refresh the UI with the new data
+
             edit.visibility = View.GONE
             button.visibility = View.GONE
-            textID.visibility = View.VISIBLE
+            textCast.visibility = View.VISIBLE
         }
 
 
