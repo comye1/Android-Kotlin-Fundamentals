@@ -7,5 +7,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Main Activity입니다."
+            android:textSize="24dp"
+            android:layout_gravity="center"/>
+
+        <fragment
+            android:id="@+id/blankFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.example.fragmentbasics.BlankFragment"/>
     </LinearLayout>
 </layout>
