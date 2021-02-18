@@ -30,7 +30,9 @@ class RulesFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentRulesBinding>(inflater, R.layout.fragment_rules, container, false)
         binding.playButton.setOnClickListener { view:View->
-            view.findNavController().navigate(R.id.action_rulesFragment_to_gameFragment)
+//            view.findNavController().navigate(R.id.action_rulesFragment_to_gameFragment)
+            view.findNavController()
+                    .navigate(RulesFragmentDirections.actionRulesFragmentToGameFragment())
         }
         // Inflate the layout for this fragment
         return binding.root
