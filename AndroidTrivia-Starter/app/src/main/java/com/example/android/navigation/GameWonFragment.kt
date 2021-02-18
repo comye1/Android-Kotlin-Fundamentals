@@ -38,13 +38,28 @@ class GameWonFragment : Fragment() {
             view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
         }
 
+        setHasOptionsMenu(true)
         // arguments 꺼내기
-        val args = GameWonFragmentArgs.fromBundle(requireArguments())
-        Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}", Toast.LENGTH_LONG).show()
+//        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+//        Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}", Toast.LENGTH_LONG).show()
 
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.winner_menu, menu)
+        if(getShareIntent().resolveActivity(requireActivity().packageManager)==null){
+            menu.findItem(R.id.share).isVisible = false
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.share -> shareSuccess()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     private fun getShareIntent(): Intent {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
