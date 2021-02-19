@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.fragmentbasics.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_pickFragment"
+            app:destination="@id/pickFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickFragment"
+        android:name="com.example.fragmentbasics.PickFragment"
+        android:label="PickFragment" >
+        <action
+            android:id="@+id/action_pickFragment_to_catFragment"
+            app:destination="@id/catFragment" />
+        <action
+            android:id="@+id/action_pickFragment_to_dogFragment"
+            app:destination="@id/dogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/catFragment"
+        android:name="com.example.fragmentbasics.CatFragment"
+        android:label="fragment_cat"
+        tools:layout="@layout/fragment_cat" />
+    <fragment
+        android:id="@+id/dogFragment"
+        android:name="com.example.fragmentbasics.DogFragment"
+        android:label="fragment_dog"
+        tools:layout="@layout/fragment_dog" />
+</navigation>
