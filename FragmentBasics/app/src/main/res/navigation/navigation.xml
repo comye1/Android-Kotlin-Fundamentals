@@ -19,10 +19,13 @@
         android:label="PickFragment" >
         <action
             android:id="@+id/action_pickFragment_to_catFragment"
-            app:destination="@id/catFragment" />
+            app:destination="@id/catFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_pickFragment_to_dogFragment"
-            app:destination="@id/dogFragment" />
+            app:destination="@id/dogFragment"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/catFragment"
