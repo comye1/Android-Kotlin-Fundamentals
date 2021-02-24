@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_mainFragment_to_pickFragment"
             app:destination="@id/pickFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
     <fragment
         android:id="@+id/pickFragment"
@@ -37,4 +40,9 @@
         android:name="com.example.fragmentbasics.DogFragment"
         android:label="fragment_dog"
         tools:layout="@layout/fragment_dog" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.fragmentbasics.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
 </navigation>
