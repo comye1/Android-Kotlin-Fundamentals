@@ -65,6 +65,9 @@ class GameFragment : Fragment() {
             if(hasFinished) gameFinished()
         })
 
+        // Set the ViewModel for databinding - this allows the bound layout access
+        // to all the data in the ViewModel
+        binding.gameViewModel = viewModel
         binding.correctButton.setOnClickListener { onCorrect() }
         binding.skipButton.setOnClickListener { onSkip() }
         binding.endGameButton.setOnClickListener { onEndGame() }
