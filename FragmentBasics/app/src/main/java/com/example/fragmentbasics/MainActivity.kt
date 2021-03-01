@@ -2,6 +2,7 @@ package com.example.fragmentbasics
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
+        // drawer 버튼도 NavigateUp 동작에서 처리함!!
+        Toast.makeText(this, "navigateUp", Toast.LENGTH_SHORT).show()
         val navController = this.findNavController(R.id.navHostFragment)
 //        return navController.navigateUp()
         return NavigationUI.navigateUp(navController, drawerLayout)
