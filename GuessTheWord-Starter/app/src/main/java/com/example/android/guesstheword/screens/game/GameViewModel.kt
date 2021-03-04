@@ -1,11 +1,27 @@
 package com.example.android.guesstheword.screens.game
 
+import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
+
+    companion object{
+        //game over
+        private const val DONE = 0L
+        //time interval - 1초
+        private const val ONE_SECOND = 1000L
+        //total time - 60초
+        private const val COUNTDOWN_TIME = 60000L
+    }
+    //Countdown time
+    private val _currentTime = MutableLiveData<Long>()
+    val currentTime: LiveData<Long>
+        get() = _currentTime
+
+    private val timer: CountDownTimer
 
     // The current word
     private val _word = MutableLiveData<String>()
@@ -62,14 +78,26 @@ class GameViewModel : ViewModel() {
 
         resetList()
         nextWord()
-        Log.i("GameViewModel", "GameViewModel created!!")
+
+        //initialize and start the timer
+        timer = object : CountDownTimer(COUNTDOWN_TIME, ONE_SECOND){
+            override fun onTick(millisUntilFinished: Long) {
+                _currentTime.value = millisUntilFinished/ ONE_SECOND
+            }
+
+            override fun onFinish() {
+                _currentTime.value = DONE
+                onGameFinish()
+            }
+        }
+        timer.start()
     }
     /**
      * Moves to the next word in the list
      */
     private fun nextWord() {
         if(wordList.isEmpty()){
-            onGameFinish()
+            resetList()
         }else{
             _word.value = wordList.removeAt(0)
         }
@@ -100,6 +128,6 @@ class GameViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        Log.i("GameViewModel", "GameViewModel destroyed")
+        timer.cancel()
     }
 }
