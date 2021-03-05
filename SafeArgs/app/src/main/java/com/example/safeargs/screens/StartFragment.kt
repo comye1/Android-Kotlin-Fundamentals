@@ -27,7 +27,7 @@ class StartFragment : Fragment() {
         )
 
         binding.button.setOnClickListener {view ->
-            if(checkName()){
+            if(!checkName()){
                 var name = binding.editText.text.toString()
                 view.findNavController()
                     .navigate(StartFragmentDirections.actionStartFragmentToPicFragment(name))
