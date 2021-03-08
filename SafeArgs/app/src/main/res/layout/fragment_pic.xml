@@ -14,7 +14,6 @@
             android:textSize="20dp"
             android:textAlignment="center"
             android:text="petName"
-            android:layout_weight="1"
             android:id="@+id/petName_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -32,8 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:gravity="center">
             <Button
                 android:id="@+id/buttonSelect"
                 android:layout_width="wrap_content"
