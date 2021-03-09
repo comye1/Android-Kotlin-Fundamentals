@@ -25,5 +25,12 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.safeargs.screens.ResultFragment"
-        android:label="ResultFragment" />
+        android:label="ResultFragment" >
+        <argument
+            android:name="imgPath"
+            app:argType="string" />
+        <argument
+            android:name="petName"
+            app:argType="string" />
+    </fragment>
 </navigation>
