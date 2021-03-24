@@ -31,7 +31,19 @@ class SleepTrackerViewModel(
         val database: SleepDatabaseDao,
         application: Application) : AndroidViewModel(application) {
 
-            private var tonight = MutableLiveData<SleepNight?>()
+    private var tonight = MutableLiveData<SleepNight?>()
+
+    fun onStartTracking(){
+        viewModelScope.launch {
+            val newNight = SleepNight() //capture the current time as the start time
+            insert(newNight)
+            tonight.value = getTonightFromDatabase()
+        }
+    }
+
+    private suspend fun insert(night:SleepNight){
+        database.insert(night)
+    }
 
     init {
         initializeTonight()
