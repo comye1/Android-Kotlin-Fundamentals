@@ -17,10 +17,7 @@
 package com.example.android.trackmysleepquality.sleeptracker
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.android.trackmysleepquality.database.SleepDatabaseDao
 import com.example.android.trackmysleepquality.database.SleepNight
 import com.example.android.trackmysleepquality.formatNights
@@ -33,12 +30,24 @@ class SleepTrackerViewModel(
         val database: SleepDatabaseDao,
         application: Application) : AndroidViewModel(application) {
 
+//    // Use encapsulation to only expose a gettable version of the LiveData to the ViewModel.
+//    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
+//    //create a LiveData that changes when you want the app to navigate to the SleepQualityFragment
+//    val navigateToSleepQuality : LiveData<SleepNight>
+//        get() = _navigateToSleepQuality
+
+
     private var tonight = MutableLiveData<SleepNight?>()
     private val nights = database.getAllNights()
     //transform nights into a nightsString
     val nightString = Transformations.map(nights) { nights ->
         formatNights(nights, application.resources)
     }
+
+//    // reset navigateToSleepQuality
+//    fun doneNavigating() {
+//        _navigateToSleepQuality.value = null
+//    }
 
     fun onStartTracking(){
         viewModelScope.launch {
@@ -52,6 +61,17 @@ class SleepTrackerViewModel(
         database.insert(night)
     }
 
+    fun onStopTracking() {
+        viewModelScope.launch {
+            val oldNight = tonight.value ?: return@launch
+            oldNight.endTimeMilli = System.currentTimeMillis()
+            update(oldNight)
+        }
+    }
+
+    private suspend fun update(night: SleepNight) {
+        database.update(night)
+    }
     fun onClear(){
         viewModelScope.launch {
             clear()
