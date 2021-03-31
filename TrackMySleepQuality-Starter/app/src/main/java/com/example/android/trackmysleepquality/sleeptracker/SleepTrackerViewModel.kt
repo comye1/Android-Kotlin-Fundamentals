@@ -30,6 +30,11 @@ class SleepTrackerViewModel(
         val database: SleepDatabaseDao,
         application: Application) : AndroidViewModel(application) {
 
+    private var _showSnackbarEvent = MutableLiveData<Boolean>()
+
+    val showSnackBarEvent: LiveData<Boolean>
+        get() = _showSnackbarEvent
+
     // Use encapsulation to only expose a gettable version of the LiveData to the ViewModel.
     private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
     //create a LiveData that changes when you want the app to navigate to the SleepQualityFragment
@@ -38,10 +43,27 @@ class SleepTrackerViewModel(
 
 
     private var tonight = MutableLiveData<SleepNight?>()
+
     private val nights = database.getAllNights()
     //transform nights into a nightsString
     val nightString = Transformations.map(nights) { nights ->
         formatNights(nights, application.resources)
+    }
+
+    val startButtonVisible = Transformations.map(tonight){
+        it == null // enabled when tonight is null
+    }
+
+    val stopButtonVisible = Transformations.map(tonight){
+        it != null // enabled when tonight is not null
+    }
+
+    val clearButtonVisible = Transformations.map(nights) {
+        it?.isNotEmpty() // enabled only if nights contain sleep nights
+    }
+
+    fun doneShowingSnackbar(){
+        _showSnackbarEvent.value = false
     }
 
     // reset navigateToSleepQuality
@@ -78,6 +100,7 @@ class SleepTrackerViewModel(
             clear()
             tonight.value = null
         }
+        _showSnackbarEvent.value = true
     }
 
     suspend fun clear() {
