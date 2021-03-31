@@ -30,11 +30,11 @@ class SleepTrackerViewModel(
         val database: SleepDatabaseDao,
         application: Application) : AndroidViewModel(application) {
 
-//    // Use encapsulation to only expose a gettable version of the LiveData to the ViewModel.
-//    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
-//    //create a LiveData that changes when you want the app to navigate to the SleepQualityFragment
-//    val navigateToSleepQuality : LiveData<SleepNight>
-//        get() = _navigateToSleepQuality
+    // Use encapsulation to only expose a gettable version of the LiveData to the ViewModel.
+    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
+    //create a LiveData that changes when you want the app to navigate to the SleepQualityFragment
+    val navigateToSleepQuality : LiveData<SleepNight>
+        get() = _navigateToSleepQuality
 
 
     private var tonight = MutableLiveData<SleepNight?>()
@@ -44,10 +44,10 @@ class SleepTrackerViewModel(
         formatNights(nights, application.resources)
     }
 
-//    // reset navigateToSleepQuality
-//    fun doneNavigating() {
-//        _navigateToSleepQuality.value = null
-//    }
+    // reset navigateToSleepQuality
+    fun doneNavigating() {
+        _navigateToSleepQuality.value = null
+    }
 
     fun onStartTracking(){
         viewModelScope.launch {
@@ -66,6 +66,7 @@ class SleepTrackerViewModel(
             val oldNight = tonight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
             update(oldNight)
+            _navigateToSleepQuality.value = oldNight //trigger navigation to the SleepQualityFragment
         }
     }
 
