@@ -66,6 +66,7 @@ class SleepDetailViewModel(
         get() = _navigateToSleepTracker
 
 
+
     /**
      * Call this immediately after navigating to [SleepTrackerFragment]
      */
