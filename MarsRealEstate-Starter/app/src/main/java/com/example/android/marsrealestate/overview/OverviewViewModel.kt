@@ -47,7 +47,7 @@ class OverviewViewModel : ViewModel() {
         get() = _properties
 
     private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
-    val navigateToSelectedData: LiveData<MarsProperty>
+    val navigateToSelectedProperty: LiveData<MarsProperty>
         get() = _navigateToSelectedProperty
 
     /**
