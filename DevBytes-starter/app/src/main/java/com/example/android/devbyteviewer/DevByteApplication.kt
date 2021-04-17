@@ -17,6 +17,7 @@
 package com.example.android.devbyteviewer
 
 import android.app.Application
+import android.os.Build
 import androidx.work.*
 import com.example.android.devbyteviewer.work.RefreshDataWorker
 import kotlinx.coroutines.CoroutineScope
@@ -47,9 +48,15 @@ class DevByteApplication : Application() {
     * Setup WorkManager background job to 'fetch' new network data daily
      */
     private fun setUpRecurringWork(){
-        //only run when the device is on an unmetered network.
         val constraints = Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.UNMETERED)
+                .setRequiredNetworkType(NetworkType.UNMETERED) // only run when the device is on an unmetered network.
+                .setRequiresBatteryNotLow(true) // the work request should run only if the battery is not low.
+                .setRequiresCharging(true) // Update the work request so it runs only when the device is charging.
+                .apply {
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                        setRequiresDeviceIdle(true) // only when the device is idle, Marshmallow and higher
+                    }
+                }
                 .build()
         val repeatingRequest = PeriodicWorkRequestBuilder<RefreshDataWorker>(
                 1, TimeUnit.DAYS)
