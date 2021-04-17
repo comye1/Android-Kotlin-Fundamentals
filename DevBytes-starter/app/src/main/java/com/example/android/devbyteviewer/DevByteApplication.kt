@@ -56,6 +56,7 @@ class DevByteApplication : Application() {
                 .setConstraints(constraints)
                 .build()
 
+        Timber.d("Periodic Work request for sync is scheduled")
         // schedule the work
         WorkManager.getInstance().enqueueUniquePeriodicWork(
                 RefreshDataWorker.WORK_NAME,
