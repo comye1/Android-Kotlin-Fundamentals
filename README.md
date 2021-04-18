@@ -1,4 +1,4 @@
-# ToyProjects_KotlinAndroid
+# Android-Kotlin-Fundamentals
 
 Android Developers > Training > Android Kotlin Fundamentals를 학습한 공간입니다.
 
